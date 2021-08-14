@@ -4,9 +4,6 @@
 
 using namespace std;
 
-#define WIDTH 40
-#define HEIGHT 20
-
 void Board::drawBox()
 {
     for( size_t x = 0 ; x < WIDTH; x++)
@@ -19,7 +16,7 @@ void Board::drawBox()
 		cout << '=';
     }
     for (size_t x = 1; x < HEIGHT; x++)
-	{
+	{ 
 		gotoxy(0, x);
 		cout << '|';
 	}
@@ -30,10 +27,11 @@ void Board::drawBox()
 	}
 }
 
-int main()
+void Board::gotoxy(short x,short y)
 {
-    Board a;
-    a.drawBox();
-    system("pause");
-}
+        HANDLE hConsoleOutput;
+        COORD Cursor_an_Pos = { x,y};
+        hConsoleOutput = GetStdHandle(STD_OUTPUT_HANDLE);
+        SetConsoleCursorPosition(hConsoleOutput , Cursor_an_Pos);
+} 
 

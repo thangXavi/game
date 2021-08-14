@@ -1,19 +1,20 @@
+// MyInt class declaration
+#ifndef _BOARD_H
+#define _BOARD_H
+
 #include <string>
 #include <iostream>
 #include "graphics.h"
 
 using namespace std;
 
-
-void gotoxy(short x,short y)
-{
-        HANDLE hConsoleOutput;
-        COORD Cursor_an_Pos = { x,y};
-        hConsoleOutput = GetStdHandle(STD_OUTPUT_HANDLE);
-        SetConsoleCursorPosition(hConsoleOutput , Cursor_an_Pos);
-}  
-
+#define WIDTH 40
+#define HEIGHT 20
+ 
 class Board{
 public:
     void drawBox();
+    void gotoxy(short x,short y);
 };
+
+#endif
